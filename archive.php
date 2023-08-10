@@ -1,21 +1,20 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 $this->need('header.php'); ?>
 <div class="breadcrumbs"><a href="<?php $this->options->siteUrl(); ?>">首页</a> &raquo; <?php $this->archiveTitle(array(
-'category'  =>  _t('分类 %s 下的文章'),
-'search'    =>  _t('包含关键字 %s 的文章'),
-'tag'       =>  _t('标签 %s 下的文章'),
-'date'      =>  _t('在 %s 发布的文章'),
-'author'    =>  _t('作者 %s 发布的文章')
+'category'  =>  _t('分类 &raquo; %s'),
+'search'    =>  _t('搜索 &raquo; %s'),
+'tag'       =>  _t('标签 &raquo; %s'),
+'date'      =>  _t('日期 &raquo; %s'),
+'author'    =>  _t('作者 &raquo; %s')
 ), '', ''); ?></div>
 <?php if ($this->have()): ?>
 <?php while($this->next()): ?>
 <article class="post<?php if ($this->options->PjaxOption && $this->hidden): ?> protected<?php endif; ?>">
-<h2 class="post-title"><a href="<?php $this->permalink() ?>"><?php $this->title() ?></a></h2>
+<h1 class="post-title"><a href="<?php $this->permalink() ?>"><?php $this->title() ?></a></h1>
 <ul class="post-meta">
-<li><?php $this->date(); ?></li>
-<li><?php $this->category(',', false); ?></li>
+<li><?php _e('时间：'); $this->date(); ?></li>
+<li><?php _e('分类：'); $this->category(',', false); ?></li>
 <li><?php $this->commentsNum('暂无评论', '%d 条评论'); ?></li>
-<li><?php Postviews($this); ?></li>
 </ul>
 <div class="post-content">
 <?php if ($this->options->PjaxOption && $this->hidden): ?>
@@ -30,9 +29,7 @@ $this->need('header.php'); ?>
 <?php if (postThumb($this)): ?>
 <p class="thumb"><?php echo postThumb($this); ?></p>
 <?php endif; ?>
-<p><?php $this->excerpt(200, ''); ?></p>
-<?php endif; if (!$this->options->OneCOL): ?>
-<p class="more"><a href="<?php $this->permalink() ?>" title="<?php $this->title() ?>">- 阅读全文 -</a></p>
+<p><?php $this->content('- 阅读剩余部分 -'); ?></p>
 <?php endif; ?>
 </div>
 </article>

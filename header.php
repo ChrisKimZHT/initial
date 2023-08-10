@@ -16,6 +16,7 @@
 'author'    =>  _t('作者 %s 发布的文章')
 ), '', ' - '); ?><?php $this->options->title(); if ($this->is('index') && $this->options->subTitle): ?> - <?php $this->options->subTitle(); endif; ?></title>
 <?php $this->header('generator=&template=&pingback=&xmlrpc=&wlw=&commentReply=&rss1=&rss2=&antiSpam=&atom='); ?>
+<link rel="stylesheet" href="<?php $this->options->themeUrl('normalize.min.css'); ?>">
 <link rel="stylesheet" href="<?php cjUrl('style.min.css') ?>" />
 <?php if ($this->options->CustomCSS): ?>
 <style type="text/css"><?php $this->options->CustomCSS(); ?></style>

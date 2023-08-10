@@ -11,7 +11,7 @@
 <?php endif; ?>
 </ul>
 <?php endif; ?>
-<p>&copy; <?php echo date('Y'); ?> <a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a>. Powered by <a href="http://www.typecho.org" target="_blank">Typecho</a> &amp; <a href="http://www.offodd.com/17.html" target="_blank">Initial</a>.</p>
+<p>&copy; <?php echo date('Y'); ?> <a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a>. Powered by <a href="http://www.typecho.org" target="_blank">Typecho</a> &amp; <a href="https://github.com/ChrisKimZHT/initial" target="_blank">Initial (ChrisKim Fork)</a>.</p>
 <?php if ($this->options->ICPbeian): ?>
 <p><a href="http://beian.miit.gov.cn" class="icpnum" target="_blank" rel="noreferrer"><?php $this->options->ICPbeian(); ?></a></p>
 <?php endif; if ($this->options->AjaxLoad): ?>

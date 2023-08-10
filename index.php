@@ -3,26 +3,26 @@
  * Initial - 简约而不简单
  * 还原本质 勿忘初心
  * 
- * @package Initial
- * @author JIElive
- * @version 2.5.5
- * @link http://www.offodd.com/
+ * @package Initial (ChrisKim Fork)
+ * @author ChrisKim (JIElive)
+ * @version 2.5.5-ChrisKim
+ * @link https://io.zouht.com/
  */
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
-$this->need('header.php');
-if ($this->_currentPage == 1 && !empty($this->options->ShowWhisper) && in_array('index', $this->options->ShowWhisper)): ?>
+$this->need('header.php'); ?>
+<div class="breadcrumbs"><a href="<?php $this->options->siteUrl(); ?>">首页</a></div>
+<?php if ($this->_currentPage == 1 && !empty($this->options->ShowWhisper) && in_array('index', $this->options->ShowWhisper)): ?>
 <article class="post whisper">
 <?php Whisper(); ?>
 </article>
 <?php endif; ?>
 <?php while($this->next()): ?>
 <article class="post<?php if ($this->options->PjaxOption && $this->hidden): ?> protected<?php endif; ?>">
-<h2 class="post-title"><a href="<?php $this->permalink() ?>"><?php $this->title() ?></a></h2>
+<h1 class="post-title"><a href="<?php $this->permalink() ?>"><?php $this->title() ?></a></h1>
 <ul class="post-meta">
-<li><?php $this->date(); ?></li>
-<li><?php $this->category(',', false); ?></li>
+<li><?php _e('时间：'); $this->date(); ?></li>
+<li><?php _e('分类：'); $this->category(',', false); ?></li>
 <li><?php $this->commentsNum('暂无评论', '%d 条评论'); ?></li>
-<li><?php Postviews($this); ?></li>
 </ul>
 <div class="post-content">
 <?php if ($this->options->PjaxOption && $this->hidden): ?>
@@ -37,9 +37,7 @@ if ($this->_currentPage == 1 && !empty($this->options->ShowWhisper) && in_array(
 <?php if (postThumb($this)): ?>
 <p class="thumb"><?php echo postThumb($this); ?></p>
 <?php endif; ?>
-<p><?php $this->excerpt(200, ''); ?></p>
-<?php endif; if (!$this->options->OneCOL): ?>
-<p class="more"><a href="<?php $this->permalink() ?>" title="<?php $this->title() ?>">- 阅读全文 -</a></p>
+<p><?php $this->content('- 阅读剩余部分 -'); ?></p>
 <?php endif; ?>
 </div>
 </article>
