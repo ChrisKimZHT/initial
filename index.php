@@ -5,7 +5,7 @@
  * 
  * @package Initial (ChrisKim Fork)
  * @author ChrisKim (JIElive)
- * @version 2.5.5-ChrisKim
+ * @version 2.5.5-0
  * @link https://io.zouht.com/
  */
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
